@@ -13,7 +13,7 @@ BaselineOfPyramidFigma >> baseline: spec [
 		self dependencies: spec.
 		spec
 			package: #'Pyramid-Figma'
-			with: [ spec requires: #( Bloc Figma Pyramid ) ] ]
+			with: [ spec requires: { #'Bloc-Figma' . #Pyramid } ] ]
 ]
 
 { #category : #accessing }
