@@ -25,8 +25,7 @@ PyFiPresenter >> actionOpenFileExplorer [
 
 	| dialog |
 	dialog := FileDialogWindow onFileSystem: FileSystem disk.
-	self flag: #TODO.
-	dialog open
+	self pathInput text: dialog openModal answer.
 ]
 
 { #category : #accessing }
