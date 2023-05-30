@@ -26,6 +26,7 @@ PyFiPresenter >> actionOpenFileExplorer [
 	| dialog |
 	dialog := FileDialogWindow onFileSystem: FileSystem disk.
 	self pathInput text: dialog openModal answer.
+	self actionImport
 ]
 
 { #category : #accessing }
