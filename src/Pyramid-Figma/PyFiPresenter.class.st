@@ -13,9 +13,11 @@ Class {
 { #category : #'as yet unclassified' }
 PyFiPresenter >> actionImport [
 
-	| elements |
+	| loader elements |
 	self activeProject ifNotNil: [
-		elements := (BlFigmaLoader loadZipFile: self pathInput text) rootElement.
+		loader := (BlFigmaLoader loadZipFile: self pathInput text).
+		elements := loader rootElement.
+		PyFiFormProxifier proxyFromLoader: loader.
 		elements isCollection
 			ifTrue: [ self activeProject roots addAll: elements ]
 			ifFalse: [ self activeProject roots add: elements ] ]
