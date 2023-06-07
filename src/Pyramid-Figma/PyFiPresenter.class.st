@@ -28,13 +28,13 @@ PyFiPresenter >> actionOpenFileExplorer [
 
 	| dialog |
 	dialog := FileDialogWindow onFileSystem: FileSystem disk.
-	self pathInput text: dialog openModal answer.
-	self actionImport
+	self pathInput text: dialog openModal answer
 ]
 
 { #category : #accessing }
 PyFiPresenter >> activeProject [
-^ activeProject
+
+	^ activeProject
 ]
 
 { #category : #layout }
