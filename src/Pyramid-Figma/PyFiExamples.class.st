@@ -9,7 +9,7 @@ PyFiExamples class >> carte [
 	"This class has been generated using Pyramid.
 
 	By: YannLEGOFF
-	2023-06-06 16:49:34"
+	2023-06-07 11:23:30"
 
 	<pySTON>
 	^ 'OrderedCollection [
@@ -175,8 +175,11 @@ PyFiExamples class >> carte [
 													#background : BlImageBackground {
 														#image : PyramidExternalRessourceProxy {
 															#source : PyramidExternalRessourceSource {
-																#selector : #form99590656,
-																#target : #PyFiTemp
+																#selector : #''formFromFileNamed:'',
+																#target : #ImageReadWriter,
+																#arguments : [
+																	FILE [ ''ressources/images/form427582976.png'' ]
+																]
 															}
 														}
 													}
@@ -214,7 +217,7 @@ PyFiExamples class >> carte [
 											#geometry : BlRoundedRectangleGeometry {
 												#extent : Point [ 181.0, 204.0 ],
 												#pathCache : BlPathCache {
-													#geometry : @80
+													#geometry : @82
 												},
 												#cornerRadii : BlCornerRadii {
 													#topLeft : 0,
@@ -289,8 +292,11 @@ PyFiExamples class >> carte [
 													#background : BlImageBackground {
 														#image : PyramidExternalRessourceProxy {
 															#source : PyramidExternalRessourceSource {
-																#selector : #form992458240,
-																#target : #PyFiTemp
+																#selector : #''formFromFileNamed:'',
+																#target : #ImageReadWriter,
+																#arguments : [
+																	FILE [ ''ressources/images/form703138048.png'' ]
+																]
 															}
 														}
 													}
@@ -298,7 +304,7 @@ PyFiExamples class >> carte [
 												#userData : IdentityDictionary { },
 												#layout : @27,
 												#eventDispatcher : BlElementEventDispatcher {
-													#owner : @99,
+													#owner : @101,
 													#handlers : [ ]
 												}
 											}
@@ -328,7 +334,7 @@ PyFiExamples class >> carte [
 											#geometry : BlRoundedRectangleGeometry {
 												#extent : Point [ 214.0, 57.0 ],
 												#pathCache : BlPathCache {
-													#geometry : @121
+													#geometry : @125
 												},
 												#cornerRadii : BlCornerRadii {
 													#topLeft : 0,
@@ -351,7 +357,7 @@ PyFiExamples class >> carte [
 										},
 										#layout : @27,
 										#eventDispatcher : BlElementEventDispatcher {
-											#owner : @97,
+											#owner : @99,
 											#handlers : [ ]
 										}
 									},
@@ -382,7 +388,7 @@ PyFiExamples class >> carte [
 											#geometry : BlRoundedRectangleGeometry {
 												#extent : Point [ 398.0, 179.0 ],
 												#pathCache : BlPathCache {
-													#geometry : @140
+													#geometry : @144
 												},
 												#cornerRadii : BlCornerRadii {
 													#topLeft : 0,
@@ -415,7 +421,7 @@ PyFiExamples class >> carte [
 										},
 										#layout : @27,
 										#eventDispatcher : BlElementEventDispatcher {
-											#owner : @131,
+											#owner : @135,
 											#handlers : [ ]
 										}
 									},
@@ -428,7 +434,7 @@ PyFiExamples class >> carte [
 														#resizer : BlLayoutFitContentResizer { }
 													},
 													#horizontal : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#position : Point [ 217.5, 7.0 ],
 													#margin : @18,
@@ -483,7 +489,7 @@ PyFiExamples class >> carte [
 											#ignoredByLayout : false,
 											#accountTransformation : false
 										},
-										#visuals : @162,
+										#visuals : @166,
 										#userData : IdentityDictionary {
 											#figma_metadata : {
 												#name : ''Carte CSE'',
@@ -496,7 +502,7 @@ PyFiExamples class >> carte [
 										},
 										#layout : @27,
 										#eventDispatcher : BlElementEventDispatcher {
-											#owner : @153,
+											#owner : @157,
 											#handlers : [ ]
 										}
 									},
@@ -506,10 +512,10 @@ PyFiExamples class >> carte [
 												#children : BlChildrenArray [ ],
 												#constraints : BlLayoutCommonConstraints {
 													#vertical : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#horizontal : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#position : Point [ 0, 4.9999999999999964 ],
 													#margin : @18,
@@ -521,7 +527,7 @@ PyFiExamples class >> carte [
 													#ignoredByLayout : false,
 													#accountTransformation : false
 												},
-												#visuals : @162,
+												#visuals : @166,
 												#userData : IdentityDictionary { },
 												#layout : @27,
 												#text : BlRopedText {
@@ -546,10 +552,10 @@ PyFiExamples class >> carte [
 												#children : BlChildrenArray [ ],
 												#constraints : BlLayoutCommonConstraints {
 													#vertical : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#horizontal : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#position : Point [ 0, 36.0 ],
 													#margin : @18,
@@ -561,7 +567,7 @@ PyFiExamples class >> carte [
 													#ignoredByLayout : false,
 													#accountTransformation : false
 												},
-												#visuals : @162,
+												#visuals : @166,
 												#userData : IdentityDictionary { },
 												#layout : @27,
 												#text : BlRopedText {
@@ -586,10 +592,10 @@ PyFiExamples class >> carte [
 												#children : BlChildrenArray [ ],
 												#constraints : BlLayoutCommonConstraints {
 													#vertical : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#horizontal : BlLayoutCommonConstraintsAxis {
-														#resizer : @159
+														#resizer : @163
 													},
 													#position : Point [ 0, 77.0 ],
 													#margin : @18,
@@ -601,7 +607,7 @@ PyFiExamples class >> carte [
 													#ignoredByLayout : false,
 													#accountTransformation : false
 												},
-												#visuals : @162,
+												#visuals : @166,
 												#userData : IdentityDictionary { },
 												#layout : @27,
 												#text : BlRopedText {
@@ -644,7 +650,7 @@ PyFiExamples class >> carte [
 											#ignoredByLayout : false,
 											#accountTransformation : false
 										},
-										#visuals : @162,
+										#visuals : @166,
 										#userData : IdentityDictionary {
 											#figma_metadata : {
 												#name : ''Mme XX 28 allée de la mer, 29200 Brest'',
@@ -657,7 +663,7 @@ PyFiExamples class >> carte [
 										},
 										#layout : @27,
 										#eventDispatcher : BlElementEventDispatcher {
-											#owner : @181,
+											#owner : @185,
 											#handlers : [ ]
 										}
 									}
@@ -669,7 +675,7 @@ PyFiExamples class >> carte [
 										}
 									},
 									#horizontal : BlLayoutCommonConstraintsAxis {
-										#resizer : @235
+										#resizer : @239
 									},
 									#position : Point [ 0.0, 0.0 ],
 									#margin : @18,
@@ -753,10 +759,10 @@ PyFiExamples class >> carte [
 				],
 				#constraints : BlLayoutCommonConstraints {
 					#vertical : BlLayoutCommonConstraintsAxis {
-						#resizer : @235
+						#resizer : @239
 					},
 					#horizontal : BlLayoutCommonConstraintsAxis {
-						#resizer : @235
+						#resizer : @239
 					},
 					#position : Point [ 0.0, 0.0 ],
 					#margin : @18,
@@ -790,10 +796,10 @@ PyFiExamples class >> carte [
 		],
 		#constraints : BlLayoutCommonConstraints {
 			#vertical : BlLayoutCommonConstraintsAxis {
-				#resizer : @235
+				#resizer : @239
 			},
 			#horizontal : BlLayoutCommonConstraintsAxis {
-				#resizer : @235
+				#resizer : @239
 			},
 			#position : Point [ 0.0, 0.0 ],
 			#margin : @18,
@@ -825,4 +831,10 @@ PyFiExamples class >> carte [
 		}
 	}
 ]'
+]
+
+{ #category : #'ston-core' }
+PyFiExamples class >> stonName [
+
+	^ self name
 ]

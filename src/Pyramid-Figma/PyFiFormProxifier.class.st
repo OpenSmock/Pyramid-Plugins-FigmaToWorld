@@ -9,16 +9,11 @@ PyFiFormProxifier class >> getProxyOf: aForm [
 
 	| selector |
 	selector := 'form' , aForm hash printString.
-	aForm writePNGFileNamed: self ressourceDirectory / (selector , '.png').
-
-	PyFiTemp class compile:
-		('<1s><r><r><t>^ ImageReadWriter formFromFileNamed: ''<1s>.png'''
-			 expandMacrosWith: selector).
+	aForm writePNGFileNamed:
+		self ressourceDirectory / (selector , '.png').
 
 	^ PyramidExternalRessourceProxy fromSource:
-		  (PyramidExternalRessourceSource
-			   target: PyFiTemp
-			   selector: selector asSymbol)
+		  (PyramidExternalRessourceSource formFromFileNamed:('ressources/images/<1s>.png' expandMacrosWith: selector))
 ]
 
 { #category : #'as yet unclassified' }
@@ -38,7 +33,9 @@ PyFiFormProxifier class >> proxyFromLoader: aLoader [
 { #category : #'as yet unclassified' }
 PyFiFormProxifier class >> ressourceDirectory [
 
-FileLocator image / 'ressources' ensureCreateDirectory.
-	FileLocator image / 'ressources' / 'images' ensureCreateDirectory.
-	^ FileLocator image / 'ressources' / 'images'
+	FileLocator imageDirectory / 'ressources' ifAbsent: [ :dir |
+		dir ensureCreateDirectory ].
+	FileLocator imageDirectory / 'ressources' / 'images' ifAbsent: [ :dir |
+		dir ensureCreateDirectory ].
+	^ FileLocator imageDirectory / 'ressources' / 'images'
 ]
