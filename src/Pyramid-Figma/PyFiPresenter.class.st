@@ -15,20 +15,22 @@ PyFiPresenter >> actionImport [
 
 	| loader elements |
 	self activeProject ifNotNil: [
-		loader := (BlFigmaLoader loadZipFile: self pathInput text).
+		loader := BlFigmaLoader loadZipFile: self pathInput text.
 		elements := loader rootElement.
 		PyFiFormProxifier proxyFromLoader: loader.
 		elements isCollection
 			ifTrue: [ self activeProject roots addAll: elements ]
-			ifFalse: [ self activeProject roots add: elements ] ]
+			ifFalse: [ self activeProject roots add: elements ] ].
 ]
 
 { #category : #'as yet unclassified' }
 PyFiPresenter >> actionOpenFileExplorer [
 
-	| dialog |
+	| dialog result |
 	dialog := FileDialogWindow onFileSystem: FileSystem disk.
-	self pathInput text: dialog openModal answer
+	result := dialog openModal answer.
+	result ifNil: [ self pathInput text: '' ] ifNotNil: [ self pathInput text: result ].
+	self hasOwner ifTrue: [ self owner owner popup ]
 ]
 
 { #category : #accessing }
