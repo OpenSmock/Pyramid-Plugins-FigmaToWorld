@@ -10,7 +10,7 @@ This plugin generate Bloc and Toplo elements.
 ```st
 [ Metacello new
 	baseline: 'PyramidFigma';
-	repository: 'github://Nyan11//Pyramid-Plugins-FigmaToWorld:main/src';
+	repository: 'github://OpenSmock/Pyramid-Plugins-FigmaToWorld:dev/src';
 	onConflictUseIncoming;
 	ignoreImage;
 	load ]
