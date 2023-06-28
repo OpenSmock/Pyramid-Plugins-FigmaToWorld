@@ -7,7 +7,16 @@ This plugin generate Bloc and Toplo elements.
 
 ## Installation
 
-TODO
+```st
+[ Metacello new
+	baseline: 'PyramidFigma';
+	repository: 'github://OpenSmock/Pyramid-Plugins-FigmaToWorld:dev/src';
+	onConflictUseIncoming;
+	ignoreImage;
+	load ]
+		on: MCMergeOrLoadWarning
+		do: [ :warning | warning load ]
+```
 
 ## Dependencies
 
