@@ -4,8 +4,7 @@ Class {
 	#traits : 'TPyramidPlugin',
 	#classTraits : 'TPyramidPlugin classTrait',
 	#instVars : [
-		'pyfiView',
-		'pyfiButton'
+		'pyfiView'
 	],
 	#category : #'Pyramid-Figma'
 }
@@ -19,10 +18,12 @@ PyFiPlugin class >> initialize [
 { #category : #adding }
 PyFiPlugin >> addPanelsOn: aPyramidSimpleWindow [
 
-	aPyramidSimpleWindow
-		at: #spaceToolbarTop
-		addItem: [ :builder |
-		builder makeButtonWithIcon: self pyfiButton order: 11 ]
+	aPyramidSimpleWindow at: #tabLeft addItem: [ :builder |
+		builder
+			makeTab: self pyfiView
+			label: 'Figma'
+			icon: (self iconNamed: #smallPaint)
+			order: 10 ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -35,19 +36,6 @@ PyFiPlugin >> connectOn: aPyramidEditor [
 PyFiPlugin >> initialize [
 
 	pyfiView := PyFiPresenter new.
-	pyfiButton := SpButtonPresenter new
-		              icon: (self iconNamed: #thumbsUp);
-		              action: [
-			              (PyramidPopoverFactory
-				               makeWithPresenter: pyfiView
-				               relativeTo: self pyfiButton
-				               position: SpPopoverPosition right) popup ];
-		              yourself
-]
-
-{ #category : #accessing }
-PyFiPlugin >> pyfiButton [
-	^ pyfiButton
 ]
 
 { #category : #accessing }

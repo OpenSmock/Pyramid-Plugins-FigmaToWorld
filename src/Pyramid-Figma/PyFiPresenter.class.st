@@ -30,7 +30,6 @@ PyFiPresenter >> actionOpenFileExplorer [
 	dialog := FileDialogWindow onFileSystem: FileSystem disk.
 	result := dialog openModal answer.
 	result ifNil: [ self pathInput text: '' ] ifNotNil: [ self pathInput text: result ].
-	self hasOwner ifTrue: [ self owner owner popup ]
 ]
 
 { #category : #accessing }
@@ -47,13 +46,15 @@ PyFiPresenter >> defaultLayout [
 		  add: (SpLabelPresenter new
 				   label: 'Import Figma design';
 				   displayBold: [ :a | true ];
-				   yourself);
+				   yourself) expand: false;
 		  add: (SpBoxLayout newHorizontal
 				   spacing: 4;
-				   add: self pathInput width: 200;
+				   add: self pathInput;
 				   add: self exploreButton width: 24;
-					add: self importButton width: 24;
-					yourself); yourself
+				   yourself) expand: false;
+		  add: self importButton expand: false;
+		  add: SpNullPresenter new;
+		  yourself
 ]
 
 { #category : #accessing }
@@ -83,7 +84,8 @@ PyFiPresenter >> initializePresenters [
 		                 yourself.
 	importButton := SpButtonPresenter new
 		                icon: (self iconNamed: #smallPrintIt);
-							 action: [ self actionImport ];
+							 label: 'Import as root';
+		                action: [ self actionImport ];
 		                yourself
 ]
 
