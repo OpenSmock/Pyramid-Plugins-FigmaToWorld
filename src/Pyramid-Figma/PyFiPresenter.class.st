@@ -5,7 +5,8 @@ Class {
 		'activeProject',
 		'pathInput',
 		'exploreButton',
-		'importButton'
+		'importButton',
+		'replaceButton'
 	],
 	#category : #'Pyramid-Figma'
 }
@@ -13,14 +14,17 @@ Class {
 { #category : #'as yet unclassified' }
 PyFiPresenter >> actionImport [
 
-	| loader elements |
+	| decoder elements loader |
 	self activeProject ifNotNil: [
-		loader := BlFigmaLoader loadZipFile: self pathInput text.
+		decoder := self replaceButton state
+			           ifTrue: [ self decoderReplace ]
+			           ifFalse: [ self decoderDefault ].
+		loader := decoder loadZipFile: self pathInput text.
 		elements := loader rootElement.
 		PyFiFormProxifier proxyFromLoader: loader.
 		elements isCollection
 			ifTrue: [ self activeProject roots addAll: elements ]
-			ifFalse: [ self activeProject roots add: elements ] ].
+			ifFalse: [ self activeProject roots add: elements ] ]
 ]
 
 { #category : #'as yet unclassified' }
@@ -38,6 +42,26 @@ PyFiPresenter >> activeProject [
 	^ activeProject
 ]
 
+{ #category : #'as yet unclassified' }
+PyFiPresenter >> decoderDefault [
+
+	^ BlFigmaDecoder new  addAllProperties: BlFigmaProperties allProperties; yourself
+]
+
+{ #category : #'as yet unclassified' }
+PyFiPresenter >> decoderReplace [
+
+	| decoder |
+	decoder := BlFigmaDecoder new
+		  addAllProperties: BlFigmaPropertiesReplaceInstances allProperties;
+		  yourself.
+	decoder properties at: #children put: [ :element :dict :loader |
+		(dict at: #type) = #INSTANCE ifFalse: [
+			element addChildren: ((dict at: #children) collect: [ :each |
+					 decoder decode: each loader: loader ]) ] ].
+	^ decoder
+]
+
 { #category : #layout }
 PyFiPresenter >> defaultLayout [
 
@@ -46,12 +70,15 @@ PyFiPresenter >> defaultLayout [
 		  add: (SpLabelPresenter new
 				   label: 'Import Figma design';
 				   displayBold: [ :a | true ];
-				   yourself) expand: false;
+				   yourself)
+		  expand: false;
 		  add: (SpBoxLayout newHorizontal
 				   spacing: 4;
 				   add: self pathInput;
 				   add: self exploreButton width: 24;
-				   yourself) expand: false;
+				   yourself)
+		  expand: false;
+		 add: self replaceButton expand: false;
 		  add: self importButton expand: false;
 		  add: SpNullPresenter new;
 		  yourself
@@ -78,13 +105,17 @@ PyFiPresenter >> importButton [
 PyFiPresenter >> initializePresenters [
 
 	pathInput := SpTextInputFieldPresenter new.
+	replaceButton := SpCheckBoxPresenter new
+		                 label: 'Replace all components by placeHolders';
+							  state: true;
+		                 yourself.
 	exploreButton := SpButtonPresenter new
 		                 icon: (self iconNamed: #configNew);
 		                 action: [ self actionOpenFileExplorer ];
 		                 yourself.
 	importButton := SpButtonPresenter new
 		                icon: (self iconNamed: #smallPrintIt);
-							 label: 'Import as root';
+		                label: 'Import as root';
 		                action: [ self actionImport ];
 		                yourself
 ]
@@ -92,4 +123,9 @@ PyFiPresenter >> initializePresenters [
 { #category : #accessing }
 PyFiPresenter >> pathInput [
 ^ pathInput
+]
+
+{ #category : #accessing }
+PyFiPresenter >> replaceButton [
+^ replaceButton
 ]
