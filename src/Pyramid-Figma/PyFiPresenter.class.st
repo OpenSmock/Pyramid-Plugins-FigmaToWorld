@@ -20,6 +20,7 @@ PyFiPresenter >> actionImport [
 			           ifTrue: [ self decoderReplace ]
 			           ifFalse: [ self decoderDefault ].
 		loader := decoder loadZipFile: self pathInput text.
+		self installFont.
 		elements := loader rootElement.
 		PyFiFormProxifier proxyFromLoader: loader.
 		elements isCollection
@@ -118,6 +119,12 @@ PyFiPresenter >> initializePresenters [
 		                label: 'Import as root';
 		                action: [ self actionImport ];
 		                yourself
+]
+
+{ #category : #'as yet unclassified' }
+PyFiPresenter >> installFont [
+
+AeFontManager globalInstance scanDirectory: 'assets/fonts/' asFileReference.
 ]
 
 { #category : #accessing }
