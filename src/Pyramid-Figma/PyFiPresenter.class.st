@@ -88,7 +88,7 @@ PyFiPresenter >> defaultLayout [
 { #category : #accessing }
 PyFiPresenter >> editor: anEditor [
 
-	activeProject := anEditor activeProject
+	activeProject := anEditor projectModel
 ]
 
 { #category : #accessing }
