@@ -15,10 +15,10 @@ Class {
 PyFiPresenter >> actionImport [
 
 	| decoder elements loader |
-	self activeProject ifNotNil: [
-		decoder := self replaceButton state
+	self activeProject ifNotNil: [ decoder := self replaceButton state
 			           ifTrue: [ self decoderReplace ]
 			           ifFalse: [ self decoderDefault ].
+
 		loader := decoder loadZipFile: self pathInput text.
 		self installFont.
 		elements := loader rootElement.
@@ -54,8 +54,9 @@ PyFiPresenter >> decoderReplace [
 
 	| decoder |
 	decoder := BlFigmaDecoder new
-		  addAllProperties: BlFigmaPropertiesReplaceInstances allProperties;
-		  yourself.
+		           addAllProperties:
+			           BlFigmaPropertiesReplaceInstances allProperties;
+		           yourself.
 	decoder properties at: #children put: [ :element :dict :loader |
 		(dict at: #type) = #INSTANCE ifFalse: [
 			element addChildren: ((dict at: #children) collect: [ :each |
