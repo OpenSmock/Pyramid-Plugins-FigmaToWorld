@@ -9,11 +9,19 @@ This plugin generate Bloc and Toplo elements.
 
 ## How it works ?
 
-The plugin install a new capacity in Pyramid editor to import a FigmaToWorld exporting file.
+The plugin install a new capacity in Pyramid editor to import a [Figma To World](https://github.com/OpenSmock/FigmaToWorld) exporting file.
 
-![image](https://github.com/OpenSmock/Pyramid-Plugins-FigmaToWorld/assets/49183340/bcaf535a-6168-45b2-9982-12063f77154b)
+### How to use it
 
-## Installation
+Export your Figma project with [Figma To World](https://github.com/OpenSmock/FigmaToWorld).
+
+![image](https://github.com/OpenSmock/Pyramid-Plugins-FigmaToWorld/assets/49183340/37833c2b-f7ad-4b46-ab58-cb3d92c28413)
+
+Import your project into Pyramid.
+
+https://github.com/OpenSmock/Pyramid-Plugins-FigmaToWorld/assets/49183340/00d09e17-22eb-41c3-b21a-eb731529b61d
+
+### Installation
 
 To install this plugin, use the following scripts inside a playground:
 
