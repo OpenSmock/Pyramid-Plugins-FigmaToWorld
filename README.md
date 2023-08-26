@@ -28,7 +28,7 @@ To install this plugin, use the following scripts inside a playground:
 ```st
 [ Metacello new
 	baseline: 'PyramidFigma';
-	repository: 'github://OpenSmock/Pyramid-Plugins-FigmaToWorld:dev/src';
+	repository: 'github://OpenSmock/Pyramid-Plugins-FigmaToWorld:main/src';
 	onConflictUseIncoming;
 	ignoreImage;
 	load ]
