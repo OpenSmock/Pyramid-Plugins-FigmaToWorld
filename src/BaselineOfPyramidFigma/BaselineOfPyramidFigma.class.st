@@ -24,7 +24,7 @@ BaselineOfPyramidFigma >> dependencies: spec [
 		with: [ spec repository: 'github://OpenSmock/Bloc-Figma:main' ].
 	spec
 		baseline: #Pyramid
-		with: [ spec repository: 'github://OpenSmock/Pyramid:dev/src' ]
+		with: [ spec repository: 'github://OpenSmock/Pyramid:main/src' ]
 ]
 
 { #category : #actions }
